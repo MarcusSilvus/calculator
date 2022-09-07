@@ -1,0 +1,11 @@
+.container {
+  width: 80%;
+  border: 1px solid #000;
+}
+
+button {
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+}
+
