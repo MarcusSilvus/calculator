@@ -16,7 +16,7 @@ class Calculator {
   }
 
   appendNumber(number) {
-
+    this.currentOperand = number;
   }
 
   chooseOperation(operation) {
@@ -28,11 +28,11 @@ class Calculator {
   }
 
   updateDisplay() {
-
+    this.currentOperandTextElement.innerText = this.currentOperand; 
   }
 }
 
-const numberButtons = document.querySelectoAll('[data-number]');
+const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
@@ -43,7 +43,7 @@ const currentOperandTextElement = document.querySelector('[data-current-operand]
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
 numberButtons.forEach(button => {
-  button.addEventListner('click', () => {
+  button.addEventListener('click', () => {
     calculator.appendNumber(button.innerText);
     calculator.updateDisplay();
   });
