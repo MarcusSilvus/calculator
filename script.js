@@ -9,6 +9,7 @@ class Calculator {
     this.currentOperand = ''
     this.previousOperand = ''
     this.operation = undefined
+    this.operation = ''
   }
 
   delete() {
@@ -57,12 +58,17 @@ class Calculator {
     this.previousOperand = ''
   }
 
+  getDisplayNumber(number) {
+    return number
+  }
+
   updateDisplay() {
-    this.currentOperandTextElement.innerText = this.currentOperand; 
+    this.currentOperandTextElement.innerText = 
+      this.getDisplayNumber(this.currentOperand) 
     //this.previousOperandTextElement.innerText = this.previousOperand;
     if (this.operation != null) {
       this.previousOperandTextElement.innerText =
-        `${this.previousOperand} ${this.operation}`
+        `${this.getDisplayNumber(previousOperand)} ${this.operation}`
     } 
   }
 }
@@ -105,3 +111,8 @@ deleteButton.addEventListener('click', button => {
   calculator.delete()
   calculator.updateDisplay()
 })
+
+// AC does not clear previousOprand
+// = does not put computed value in previousOperand, 
+//   does not clear the operation
+//   does not clear currentOperand
