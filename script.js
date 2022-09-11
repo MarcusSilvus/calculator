@@ -59,7 +59,9 @@ class Calculator {
   }
 
   getDisplayNumber(number) {
-    return number
+    const floatNumber = parseFloat(number)
+    if (isNaN(floatNumber)) return ''
+    return floatNumber.toLocaleString('en')
   }
 
   updateDisplay() {
@@ -68,7 +70,7 @@ class Calculator {
     //this.previousOperandTextElement.innerText = this.previousOperand;
     if (this.operation != null) {
       this.previousOperandTextElement.innerText =
-        `${this.getDisplayNumber(previousOperand)} ${this.operation}`
+        `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
     } 
   }
 }
