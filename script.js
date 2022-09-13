@@ -113,8 +113,3 @@ deleteButton.addEventListener('click', button => {
   calculator.delete()
   calculator.updateDisplay()
 })
-
-// AC does not clear previousOprand
-// = does not put computed value in previousOperand, 
-//   does not clear the operation
-//   does not clear currentOperand
